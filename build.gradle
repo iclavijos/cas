@@ -398,3 +398,6 @@ task javadoc(type: Javadoc) {
     destinationDir = new File(buildDir, 'javadoc')
     classpath = files(subprojects.collect { project -> project.sourceSets.main.compileClasspath })
 } 
+
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean
